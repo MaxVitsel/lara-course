@@ -51,9 +51,9 @@ main{padding:20px 0 96px}
 .call.err{background:var(--soft)}.call.err .k{background:var(--bad)}
 .call p{margin:0}
 .tblw{overflow-x:auto;margin:0 0 16px;border:1px solid var(--line);border-radius:14px}
-table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:480px}
-th{background:var(--ac);color:#fff;text-align:left;padding:9px 12px;font-weight:700}
-td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:0}
+th{background:var(--ac);color:#fff;text-align:left;padding:9px 10px;font-weight:700}
+td{padding:9px 10px;border-top:1px solid var(--line);vertical-align:top}
 .pics{display:grid;gap:12px;align-content:start;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
 .pic{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;position:relative}
 .pic img{display:block;width:100%;aspect-ratio:1/1;object-fit:contain;background:#fff;padding:6px}
@@ -176,6 +176,10 @@ th{font-size:13px;letter-spacing:.03em}
 .sch .d2{animation-delay:.6s}.sch .d3{animation-delay:1.2s}
 @keyframes drip{0%{transform:translateY(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateY(46px);opacity:0}}
 @media (prefers-reduced-motion:reduce){.sch *{animation:none!important}}
+.nw{white-space:nowrap}
+table.dense{font-size:13px}table.dense td,table.dense th{padding:8px 6px}
+td,th{overflow-wrap:anywhere}td.nw,th.nw{overflow-wrap:normal}
+@media (max-width:760px){tbody td:first-child,thead th:first-child{position:sticky;left:0;z-index:1;background:var(--card)}thead th:first-child{background:var(--ac)}tbody tr:nth-child(even) td:first-child{background:color-mix(in srgb,var(--ac) 5%,var(--card))}}
 </style>
 
 <div class="wrap">
@@ -209,7 +213,8 @@ function fig(k,tag){
    '<div class="ph">'+m[1]+'</div><figcaption>'+m[1]+'</figcaption></figure>';
 }
 function callHtml(c){var lab={say:"Скрипт",mem:"Запомни",err:"Стоп",gen:"Принцип"}[c[0]];return '<div class="call '+c[0]+'"><span class="k">'+lab+'</span><p>'+c[1]+'</p></div>'}
-function tblHtml(t){return '<div class="tblw"><table><thead><tr>'+t.head.map(function(h){return '<th>'+h+'</th>'}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+c+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table></div>'}
+function tcell(c,tag){c=String(c).replace(/\(\s+/g,'(').replace(/\s+\)/g,')').replace(/\s+/g,' ').trim();var pl=c.replace(/<[^>]*>/g,'');var nw=pl.length<=18;if(nw)c=c.replace(/ /g,'\u00a0').replace(/CT-/g,'CT\u2011');return '<'+tag+(nw?' class="nw"':'')+'>'+c+'</'+tag+'>'}
+function tblHtml(t){return '<div class="tblw"><table'+(t.head.length>=6?' class="dense"':'')+'><thead><tr>'+t.head.map(function(h){return tcell(h,'th')}).join('')+'</tr></thead><tbody>'+t.rows.map(function(r){return '<tr>'+r.map(function(c){return tcell(c,'td')}).join('')+'</tr>'}).join('')+'</tbody></table></div>'}
 function chipsHtml(g){return g.map(function(x){return '<div class="chipbox '+(x[2]||'')+'"><div class="chiph">'+x[0]+'</div><div class="chips">'+x[1].map(function(c){return '<span>'+c+'</span>'}).join('')+'</div></div>'}).join('')}
 function flowHtml(f){return '<div class="flow n'+f.length+'">'+f.map(function(s){return '<div class="st"><i>'+s[0]+'</i><b>'+s[1]+'</b><span>'+s[2]+'</span></div>'}).join('')+'</div>'}
 function dlgHtml(d){return '<div class="dlg">'+d.map(function(m){return '<div class="msg '+m[0]+'"><small>'+(m[0]==='b'?'Покупатель':'Вы')+'</small>'+m[1]+'</div>'}).join('')+'</div>'}
