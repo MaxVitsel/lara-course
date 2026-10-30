@@ -1,31 +1,97 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Обучение продавцов CENTEK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--b:#0a4fa8;--bg:#f3f6fb;--t:#13243b;--g:#8a97a8}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--t)}
-header{background:var(--b);color:#fff;padding:28px 16px 24px}header div,main{max-width:900px;margin:0 auto}
-h1{margin:0 0 6px;font-size:26px}header p{margin:0;opacity:.85}
-main{padding:8px 16px 40px}h2{font-size:18px;margin:28px 0 10px}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
-a.t,div.t{display:block;background:#fff;border-radius:14px;padding:16px;text-decoration:none;color:inherit;border:2px solid transparent;box-shadow:0 1px 4px rgba(0,0,0,.07);min-height:96px}
-a.t:hover{border-color:var(--b)}a.t b,div.t b{display:block;font-size:16px;margin-bottom:6px}
-.s{font-size:13px;color:var(--g)}a.t .s{color:var(--b);font-weight:600}
-div.t{background:#e9edf3;box-shadow:none}div.t b{color:var(--g)}
+:root{--t:#0f1b33}
+*{box-sizing:border-box}
+body{margin:0;font-family:Onest,system-ui,-apple-system,Segoe UI,sans-serif;background:#eef2fa;color:var(--t);overflow-x:hidden}
+header{position:relative;color:#fff;padding:44px 16px 64px;background:linear-gradient(120deg,#0a4fa8,#5b2bd6,#e0338a,#ff8a1f,#0a4fa8);background-size:300% 300%;animation:flow 16s ease infinite;overflow:hidden}
+@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+header:before,header:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.14);animation:float 9s ease-in-out infinite}
+header:before{width:260px;height:260px;right:-60px;top:-90px}
+header:after{width:160px;height:160px;left:8%;bottom:-70px;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(18px) scale(1.08)}}
+.in,main{max-width:1000px;margin:0 auto;position:relative}
+h1{margin:0 0 10px;font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:clamp(24px,5vw,40px);line-height:1.08;letter-spacing:-.5px}
+h1 span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);animation:w .7s cubic-bezier(.2,.9,.3,1.2) forwards;animation-delay:calc(var(--k)*90ms)}@keyframes w{to{opacity:1;transform:none}}
+header p{margin:0;opacity:.92;font-size:clamp(14px,2.4vw,17px)}
+.pills{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
+.pills span{background:rgba(255,255,255,.2);backdrop-filter:blur(6px);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
+main{padding:0 16px 48px;margin-top:-30px}
+h2{font-family:Unbounded,Onest,sans-serif;font-weight:500;font-size:16px;margin:36px 0 14px;color:#2a3a5c;display:flex;align-items:center;gap:10px}
+h2:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,#c9d4ea,transparent)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.t{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:170px;padding:18px;border-radius:22px;color:#fff;text-decoration:none;overflow:hidden;isolation:isolate;
+ background:linear-gradient(135deg,var(--a),var(--b));background-size:160% 160%;box-shadow:0 10px 24px -10px var(--a);
+ transition:transform .25s ease-out,box-shadow .35s,background-position .6s;transform-style:preserve-3d;
+ opacity:0;transform:translateY(22px);animation:in .7s ease forwards;animation-delay:calc(var(--i)*70ms)}
+@keyframes in{to{opacity:1;transform:none}}
+a.t:hover{background-position:100% 100%;box-shadow:0 18px 34px -10px var(--a)}
+.t:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-50px;top:-60px;background:rgba(255,255,255,.18);z-index:-1;animation:float 8s ease-in-out infinite}
+.t:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.45),transparent 55%);opacity:0;transition:opacity .3s;z-index:-1}
+a.t:hover:after{opacity:1}
+.t img{position:absolute;right:-6px;top:6px;width:52%;height:auto;mix-blend-mode:multiply;z-index:-1;filter:saturate(1.1) contrast(1.05);transition:transform .5s;animation:bob 6s ease-in-out infinite}
+a.t img{transform:translate(calc(var(--px,0)*14px),calc(var(--py,0)*10px)) scale(1.04)}
+a.t:hover img{scale:1.1}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.t svg{position:absolute;right:14px;top:14px;width:88px;height:88px;opacity:.92;transition:transform .5s;z-index:-1}
+a.t:hover svg{transform:scale(1.12) rotate(-6deg)}
+.t b{font-size:19px;line-height:1.15;margin-bottom:8px;max-width:80%;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+.go{font-size:13px;font-weight:700;background:rgba(255,255,255,.25);backdrop-filter:blur(4px);align-self:flex-start;padding:5px 12px;border-radius:99px;transition:background .3s,padding .3s}
+a.t:hover .go{background:#fff;color:var(--a);padding-right:18px}
+.soon{filter:saturate(.35) brightness(1.05);box-shadow:none;cursor:default}
+.soon .go{background:rgba(0,0,0,.18)}
+.soon svg{opacity:.45}
+.wide{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t{min-height:150px;padding:14px}.t b{font-size:16px;max-width:100%}.t img{width:60%;opacity:.9}.t svg{width:64px;height:64px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.t{opacity:1;transform:none}}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:34px}
+.bar button{font:600 14px Onest,sans-serif;border:0;border-radius:99px;padding:9px 16px;background:#fff;color:#2a3a5c;box-shadow:0 2px 8px rgba(20,40,90,.1);cursor:pointer;transition:background .25s,color .25s,transform .2s}
+.bar button[aria-pressed=true]{background:#0f1b33;color:#fff}.bar button:active{transform:scale(.95)}
+.bar output{margin-left:auto;font-size:14px;color:#4a5a78}
+.hide{display:none!important}
+h2.hide+.g{display:none}
+a:focus-visible,button:focus-visible{outline:3px solid #0f1b33;outline-offset:3px}
 </style></head><body>
-<header><div><h1>Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p></div></header>
+<header><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p>
+<div class="pills"><span>CENTEK</span><span>LARA</span><span>NEWTEK</span><span>Тест и сертификат</span></div></div></header>
 <main>
-<h2>Посуда</h2><div class="g"><a class="t" href="lara/"><b>Посуда LARA</b><span class="s">Открыть курс →</span></a></div>
+<div class="bar"><button data-f="all" aria-pressed="true">Все курсы</button><button data-f="ready" aria-pressed="false">Готовые к обучению</button><output id="cnt"></output></div>
+<h2>Посуда</h2><div class="g">
+<a class="t" style="--a:#e8501f;--b:#ffb02e;--i:0" href="lara/"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="30" cy="30" rx="20" ry="7"/><path d="M10 30v10c0 4 9 8 20 8s20-4 20-8V30M50 28h10M20 12c-3 4 3 6 0 10M30 10c-3 4 3 6 0 10M40 12c-3 4 3 6 0 10"/></svg><b>Посуда LARA</b><span class="go">Открыть курс →</span></a></div>
 <h2>Мелкая бытовая техника</h2><div class="g">
-<a class="t" href="mbt-kitchen-cook/"><b>Кухня: приготовление</b><span class="s">Открыть курс →</span></a>
-<a class="t" href="mbt-drinks/"><b>Кухня: напитки и измельчение</b><span class="s">Открыть курс →</span></a>
-<a class="t" href="mbt-home/"><b>Уход за домом</b><span class="s">Открыть курс →</span></a>
-<a class="t" href="mbt-beauty/"><b>Красота и здоровье</b><span class="s">Открыть курс →</span></a></div>
+<a class="t" style="--a:#ff5a36;--b:#ff2e7e;--i:1" href="mbt-kitchen-cook/"><img src="img/cook.jpg" alt=""><b>Кухня: приготовление</b><span class="go">Открыть курс →</span></a>
+<a class="t" style="--a:#0aa6a0;--b:#2d6cdf;--i:2" href="mbt-drinks/"><img src="img/drinks.jpg" alt=""><b>Кухня: напитки и измельчение</b><span class="go">Открыть курс →</span></a>
+<a class="t" style="--a:#5b3be0;--b:#2aa1ff;--i:3" href="mbt-home/"><img src="img/home.jpg" alt=""><b>Уход за домом</b><span class="go">Открыть курс →</span></a>
+<a class="t" style="--a:#d4208a;--b:#ff7a45;--i:4" href="mbt-beauty/"><img src="img/beauty.jpg" alt=""><b>Красота и здоровье</b><span class="go">Открыть курс →</span></a></div>
 <h2>Крупная бытовая техника</h2><div class="g">
-<div class="t"><b>Холодильники и морозильники</b><span class="s">скоро</span></div>
-<div class="t"><b>Стирка</b><span class="s">скоро</span></div>
-<div class="t"><b>Встраиваемая и варка</b><span class="s">скоро</span></div></div>
-<h2>Телевизоры</h2><div class="g"><div class="t"><b>Телевизоры</b><span class="s">скоро</span></div></div>
+<div class="t soon" style="--a:#3a6df0;--b:#7ad0ff;--i:5"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="6" width="32" height="52" rx="4"/><path d="M16 26h32M22 14v6M22 32v10"/></svg><b>Холодильники и морозильники</b><span class="go">скоро</span></div>
+<div class="t soon" style="--a:#7a4df0;--b:#c58bff;--i:6"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="6" width="44" height="52" rx="5"/><circle cx="32" cy="36" r="13"/><path d="M20 14h4M28 14h4"/></svg><b>Стирка</b><span class="go">скоро</span></div>
+<div class="t soon" style="--a:#e0572b;--b:#ffc14a;--i:7"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="48" height="44" rx="5"/><path d="M8 24h48"/><circle cx="20" cy="17" r="1.5"/><circle cx="28" cy="17" r="1.5"/><rect x="18" y="32" width="28" height="14" rx="3"/></svg><b>Встраиваемая и варка</b><span class="go">скоро</span></div></div>
+<h2>Телевизоры</h2><div class="g">
+<div class="t soon" style="--a:#14233f;--b:#3a5bd9;--i:8"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="52" height="34" rx="4"/><path d="M22 56h20M32 46v10"/></svg><b>Телевизоры</b><span class="go">скоро</span></div></div>
 <h2>Климат</h2><div class="g">
-<div class="t"><b>Кондиционеры</b><span class="s">скоро</span></div>
-<div class="t"><b>Летний климат</b><span class="s">скоро</span></div>
-<div class="t"><b>Зимний климат</b><span class="s">скоро</span></div></div>
-</main></body></html>
+<div class="t soon" style="--a:#12b5d6;--b:#4d7cff;--i:9"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="52" height="18" rx="4"/><path d="M14 38c0 6-4 6-4 12M30 38c0 6-4 6-4 12M46 38c0 6-4 6-4 12"/></svg><b>Кондиционеры</b><span class="go">скоро</span></div>
+<div class="t soon" style="--a:#ffb300;--b:#ff6b3d;--i:10"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="10"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8M14 14l6 6M44 44l6 6M14 50l6-6M44 20l6-6"/></svg><b>Летний климат</b><span class="go">скоро</span></div>
+<div class="t soon" style="--a:#5fa8ff;--b:#9a7dff;--i:11"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6v52M10 19l44 26M10 45l44-26M26 10l6 6 6-6M26 54l6-6 6 6"/></svg><b>Зимний климат</b><span class="go">скоро</span></div></div>
+</main>
+<script>
+(function(){
+var h=document.getElementById('h1'),w=h.textContent.split(' ');h.setAttribute('aria-label',h.textContent);
+h.innerHTML=w.map(function(x,i){return '<span aria-hidden="true" style="--k:'+i+'">'+x+'&nbsp;</span>'}).join('');
+var fine=matchMedia('(hover:hover) and (pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(fine&&!calm)document.querySelectorAll('a.t').forEach(function(c){
+ c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+  c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.setProperty('--px',(x-.5).toFixed(2));c.style.setProperty('--py',(y-.5).toFixed(2));
+  c.style.transform='perspective(700px) rotateX('+((.5-y)*9).toFixed(1)+'deg) rotateY('+((x-.5)*11).toFixed(1)+'deg) translateY(-6px) scale(1.02)'});
+ c.addEventListener('pointerleave',function(){c.style.transform='';c.style.setProperty('--px',0);c.style.setProperty('--py',0)});
+});
+var all=document.querySelectorAll('.t'),ready=document.querySelectorAll('a.t').length;
+document.getElementById('cnt').textContent='Готово курсов: '+ready+' из '+all.length;
+document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){
+ document.querySelectorAll('.bar button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+ var onlyReady=b.dataset.f==='ready';
+ document.querySelectorAll('div.t.soon').forEach(function(t){t.classList.toggle('hide',onlyReady)});
+ document.querySelectorAll('main h2').forEach(function(h2){var g=h2.nextElementSibling;h2.classList.toggle('hide',onlyReady&&!g.querySelector('a.t'))});
+})});
+})();
+</script></body></html>
