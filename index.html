@@ -4,22 +4,23 @@
 :root{--t:#0f1b33}
 *{box-sizing:border-box}
 body{margin:0;font-family:Onest,system-ui,sans-serif;background:#eef2fa;color:var(--t);overflow-x:hidden}
-header{position:relative;color:#fff;padding:46px 16px 78px;background:linear-gradient(120deg,#0a4fa8,#5b2bd6,#e0338a,#ff8a1f,#0a4fa8);background-size:300% 300%;animation:flow 16s ease infinite;overflow:hidden}
+header{position:relative;color:#fff;padding:54px 16px 120px;background:linear-gradient(120deg,#0a4fa8,#5b2bd6,#e0338a,#ff8a1f,#0a4fa8);background-size:300% 300%;animation:flow 16s ease infinite;overflow:hidden}
 @keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
 header:before,header:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.13);animation:float 9s ease-in-out infinite}
 header:before{width:280px;height:280px;right:-60px;top:-100px}header:after{width:170px;height:170px;left:8%;bottom:-80px;animation-delay:-4s}
 @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(18px) scale(1.08)}}
 .in,main{max-width:1040px;margin:0 auto;position:relative}
-.in{z-index:2}
-h1{margin:0 0 10px;font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:clamp(24px,5vw,40px);line-height:1.08;letter-spacing:-.5px;max-width:13em}
+.in{z-index:2;text-align:center}
+.in h1,.in header p{margin-left:auto;margin-right:auto}
+h1{margin:0 auto 10px;font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:clamp(24px,5vw,40px);line-height:1.08;letter-spacing:-.5px;max-width:13em}
 h1 span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);animation:w .7s cubic-bezier(.2,.9,.3,1.2) forwards;animation-delay:calc(var(--k)*90ms)}
 @keyframes w{to{opacity:1;transform:none}}
-header p{margin:0;max-width:30em;opacity:.95;font-size:clamp(14px,2.4vw,17px)}
-.pills{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+header p{margin:0 auto;max-width:30em;opacity:.95;font-size:clamp(14px,2.4vw,17px)}
+.pills{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .pills span{background:rgba(255,255,255,.2);backdrop-filter:blur(6px);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
-.float{position:absolute;right:0;top:50%;margin-top:-80px;display:none;align-items:center;gap:22px;pointer-events:none}
-.float img{height:var(--h);width:auto;filter:drop-shadow(0 10px 14px rgba(20,0,60,.35));animation:bob2 7s ease-in-out infinite;animation-delay:var(--d);transform:translate(var(--tx,0),var(--ty,0));transition:transform .4s ease-out}
-@media(min-width:1040px){.float{display:flex}}
+.float{position:absolute;inset:0;pointer-events:none;z-index:1}
+.float img{position:absolute;left:0;top:0;width:auto;opacity:0;will-change:transform;filter:drop-shadow(0 10px 14px rgba(20,0,60,.35));transition:opacity .6s}
+.float img.on{opacity:1}
 @keyframes bob2{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -14px;rotate:3deg}}
 main{padding:0 16px 48px;margin-top:-34px;z-index:3}
 .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -38,7 +39,7 @@ a.t:hover{background-position:100% 100%;box-shadow:0 18px 34px -10px var(--a)}
 .t:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.42),transparent 55%);opacity:0;transition:opacity .3s;z-index:-1}
 a.t:hover:after{opacity:1}
 .ph{position:absolute;right:10px;top:10px;width:56%;height:62%;z-index:-1;display:flex;align-items:center;justify-content:center;transform:translate(calc(var(--px,0)*16px),calc(var(--py,0)*10px));transition:transform .2s}
-.ph img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(20,0,60,.35));animation:bob 6s ease-in-out infinite;transition:scale .4s}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;mix-blend-mode:multiply;opacity:.92;animation:bob 6s ease-in-out infinite;transition:scale .4s}
 a.t:hover .ph img{scale:1.1}
 @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
 .t b{font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:15px;line-height:1.2;margin-bottom:10px;max-width:92%;text-shadow:0 1px 8px rgba(0,0,0,.25)}
@@ -47,10 +48,10 @@ a.t:hover .go{background:#fff;color:var(--a);padding-right:18px}
 .soon{cursor:default;box-shadow:none;filter:saturate(.8)}.soon .go{background:rgba(0,0,0,.2)}
 .hide{display:none!important}
 a:focus-visible,button:focus-visible{outline:3px solid #0f1b33;outline-offset:3px}
-@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t{min-height:156px;padding:14px}.t b{font-size:13px;max-width:100%}.ph{width:58%;height:50%}}
+@media(max-width:520px){header{padding-bottom:190px}.g{grid-template-columns:1fr 1fr;gap:12px}.t{min-height:156px;padding:14px}.t b{font-size:13px;max-width:100%}.ph{width:58%;height:50%}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.t{opacity:1;transform:none}h1 span{opacity:1;transform:none}}
 </style></head><body>
-<header><div class="in"><div class="float" aria-hidden="true"><img style="--h:120px;--d:0s" src="img/cook.png" alt=""><img style="--h:92px;--d:-1.6s" src="img/home.png" alt=""><img style="--h:86px;--d:-3.2s" src="img/tv.png" alt=""><img style="--h:128px;--d:-4.8s" src="img/beauty.png" alt=""></div><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p>
+<header><div class="float" aria-hidden="true"><img data-h="110" src="img/cook.png" alt=""><img data-h="74" src="img/tv.png" alt=""><img data-h="84" src="img/home.png" alt=""><img data-h="120" src="img/beauty.png" alt=""><img data-h="72" src="img/lara.png" alt=""><img data-h="130" src="img/fridge.png" alt=""><img data-h="108" src="img/wash.png" alt=""><img data-h="76" src="img/hob.png" alt=""><img data-h="72" src="img/hood.png" alt=""><img data-h="100" src="img/fan.png" alt=""><img data-h="58" src="img/ac.png" alt=""><img data-h="110" src="img/heater.png" alt=""><img data-h="104" src="img/drinks.png" alt=""><img data-h="70" src="img/mw.png" alt=""></div><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p>
 <div class="pills"><span>CENTEK</span><span>LARA</span><span>NEWTEK</span><span>Тест и сертификат</span></div></div></header>
 <main>
 <div class="bar"><button data-f="all" aria-pressed="true">Все курсы</button><button data-f="ready" aria-pressed="false">Готовые к обучению</button><output id="cnt"></output></div>
@@ -73,9 +74,6 @@ document.querySelectorAll('a.t').forEach(function(c){
   c.style.transform='perspective(700px) rotateX('+((.5-y)*9).toFixed(1)+'deg) rotateY('+((x-.5)*11).toFixed(1)+'deg) translateY(-6px) scale(1.02)'});
  c.addEventListener('pointerleave',function(){c.style.transform='';c.style.setProperty('--px',0);c.style.setProperty('--py',0)});
 });
-var hd=document.querySelector('header');
-hd.addEventListener('pointermove',function(e){var r=hd.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
- hd.querySelectorAll('.float img').forEach(function(im,i){var k=(i%3+1)*16;im.style.setProperty('--tx',(x*k).toFixed(1)+'px');im.style.setProperty('--ty',(y*k).toFixed(1)+'px')})});
 }
 var all=document.querySelectorAll('.t'),ready=document.querySelectorAll('a.t').length;
 document.getElementById('cnt').textContent='Готово курсов: '+ready+' из '+all.length;
@@ -85,5 +83,42 @@ document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener(
  document.querySelectorAll('div.t.soon').forEach(function(t){t.classList.toggle('hide',only)});
  document.querySelectorAll('main h2').forEach(function(h2){var g=h2.nextElementSibling,none=only&&!g.querySelector('a.t');h2.classList.toggle('hide',none);g.classList.toggle('hide',none)});
 })});
+})();
+
+(function(){
+var hd=document.querySelector('header'),box=hd.querySelector('.float'),imgs=[].slice.call(box.querySelectorAll('img')),calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var items=[],W=0,H=0,B=62,obs=null,last=0,raf=0;
+function textBox(k){var rg=document.createRange();rg.selectNodeContents(k);var b=rg.getBoundingClientRect();return {left:b.left,right:b.right}}
+function measure(){var r=hd.getBoundingClientRect();W=r.width;H=r.height-B;
+ var x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;[].slice.call(hd.querySelectorAll('.in h1,.in p,.in .pills span')).forEach(function(k){var q=k.getBoundingClientRect(),t=(k.tagName==='H1'||k.tagName==='P')?textBox(k):q;x0=Math.min(x0,t.left);x1=Math.max(x1,t.right);y0=Math.min(y0,q.top);y1=Math.max(y1,q.bottom)});
+ obs={l:x0-r.left-14,r:x1-r.left+14,t:y0-r.top-10,b:y1-r.top+10}}
+function box2(it){return {l:it.x-it.hw,r:it.x+it.hw,t:it.y-it.hh,b:it.y+it.hh}}
+function ov(a,b){var ox=Math.min(a.r,b.r)-Math.max(a.l,b.l),oy=Math.min(a.b,b.b)-Math.max(a.t,b.t);return ox>0&&oy>0?[ox,oy]:null}
+function free(it,upto){var a=box2(it);if(ov(a,obs))return false;for(var j=0;j<upto;j++){var b=box2(items[j]);b.l-=6;b.r+=6;b.t-=6;b.b+=6;if(ov(a,b))return false}return true}
+function paint(it){it.el.style.transform='translate('+(it.x-it.hw).toFixed(1)+'px,'+(it.y-it.hh).toFixed(1)+'px) rotate('+(Math.sin(it.ph)*3).toFixed(1)+'deg)'}
+function setup(){measure();var n=W<640?6:W<1000?8:11,sc=W<640?.55:W<1000?.72:.88,sp0=W<640?14:20;items=[];
+ imgs.forEach(function(im,i){im.classList.remove('on');if(i>=n){im.style.display='none';return}im.style.display='';
+  var h=(+im.dataset.h)*sc,ar=(im.naturalWidth||1)/(im.naturalHeight||1);im.style.height=h+'px';
+  items.push({el:im,hw:h*ar/2,hh:h/2,x:0,y:0,vx:0,vy:0,ph:Math.random()*6})});
+ items.forEach(function(it,i){var t=0,ok=false;while(!ok&&t++<600){it.x=it.hw+Math.random()*(W-2*it.hw);it.y=it.hh+Math.random()*(H-2*it.hh);ok=free(it,i)}
+  var a=Math.random()*6.283,sp=sp0+Math.random()*14;it.vx=Math.cos(a)*sp;it.vy=Math.sin(a)*sp;paint(it)});
+ items.forEach(function(it,i){setTimeout(function(){it.el.classList.add('on')},i*90)})}
+function sep(a,b,o,wa,wb){ // разнести по оси наименьшего проникновения и обменять скорости
+ var ax=a.x-b.x,ay=a.y-b.y;
+ if(o[0]<o[1]){var d=ax<0?-1:1;a.x+=d*o[0]*wa;b.x-=d*o[0]*wb;var v=(a.vx-b.vx)*d;if(v<0){var t=a.vx;a.vx=b.vx;b.vx=t}}
+ else{var e=ay<0?-1:1;a.y+=e*o[1]*wa;b.y-=e*o[1]*wb;var u=(a.vy-b.vy)*e;if(u<0){var q=a.vy;a.vy=b.vy;b.vy=q}}}
+function walls(it){if(it.x<it.hw){it.x=it.hw;it.vx=Math.abs(it.vx)}if(it.x>W-it.hw){it.x=W-it.hw;it.vx=-Math.abs(it.vx)}
+  if(it.y<it.hh){it.y=it.hh;it.vy=Math.abs(it.vy)}if(it.y>H-it.hh){it.y=H-it.hh;it.vy=-Math.abs(it.vy)}}
+function text(it){var o=ov(box2(it),obs);if(!o)return;
+  if(o[0]<o[1]){var cx=(obs.l+obs.r)/2;if(it.x<cx){it.x-=o[0];it.vx=-Math.abs(it.vx)}else{it.x+=o[0];it.vx=Math.abs(it.vx)}}
+  else{var cy=(obs.t+obs.b)/2;if(it.y<cy){it.y-=o[1];it.vy=-Math.abs(it.vy)}else{it.y+=o[1];it.vy=Math.abs(it.vy)}}}
+function step(dt){
+ items.forEach(function(it){it.x+=it.vx*dt;it.y+=it.vy*dt;it.ph+=dt*.9;walls(it);text(it)});
+ for(var k=0;k<3;k++){for(var i=0;i<items.length;i++)for(var j=i+1;j<items.length;j++){var a=items[i],b=items[j],o=ov(box2(a),box2(b));if(o)sep(a,b,o,.5,.5)}
+  items.forEach(function(it){walls(it);text(it)})}
+ items.forEach(function(it){var sp=Math.hypot(it.vx,it.vy);if(sp<10||sp>42){var k=(sp<10?14:36)/Math.max(sp,.01);it.vx*=k;it.vy*=k}paint(it)})}
+var mt=0;function loop(t){var dt=Math.min(.05,(t-last)/1000||0);last=t;if(t-mt>400){mt=t;measure()}step(dt);raf=requestAnimationFrame(loop)}
+function start(){cancelAnimationFrame(raf);setup();if(!calm){last=performance.now();raf=requestAnimationFrame(loop)}}
+Promise.all(imgs.map(function(i){return i.decode?i.decode().catch(function(){}):Promise.resolve()}).concat([document.fonts&&document.fonts.ready||Promise.resolve()])).then(function(){return new Promise(function(r){setTimeout(r,900)})}).then(function(){start();var wt=0;if(window.ResizeObserver)new ResizeObserver(function(){clearTimeout(wt);wt=setTimeout(start,200)}).observe(hd)});
 })();
 </script></body></html>
