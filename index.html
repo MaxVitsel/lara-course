@@ -1,89 +1,89 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Обучение продавцов CENTEK</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0a0612;--y:#ffc233;--p:#ff3fa4;--v:#7a3cf0}
+:root{--t:#0f1b33}
 *{box-sizing:border-box}
-body{margin:0;font-family:Onest,system-ui,sans-serif;color:#fff;background:radial-gradient(1200px 600px at 50% 100%,#3a0f5e 0,transparent 70%),var(--ink);overflow-x:hidden;min-height:100vh}
-header{position:relative;padding:54px 16px 90px;overflow:hidden;background:linear-gradient(115deg,#2f6bff,#7a3cf0,#ff3fa4,#ffb020,#7a3cf0,#2f6bff);background-size:300% 300%;animation:flow 14s ease infinite}
+body{margin:0;font-family:Onest,system-ui,sans-serif;background:#eef2fa;color:var(--t);overflow-x:hidden}
+header{position:relative;color:#fff;padding:46px 16px 78px;background:linear-gradient(120deg,#0a4fa8,#5b2bd6,#e0338a,#ff8a1f,#0a4fa8);background-size:300% 300%;animation:flow 16s ease infinite;overflow:hidden}
 @keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.float{position:absolute;inset:0;pointer-events:none}
-.float img{position:absolute;left:var(--x);top:var(--y);width:var(--s);mix-blend-mode:multiply;animation:bob2 7s ease-in-out infinite;animation-delay:var(--d);transform:translate(var(--tx,0),var(--ty,0));transition:transform .4s ease-out}
-@keyframes bob2{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -14px;rotate:3deg}}
-header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,transparent,var(--ink))}
+header:before,header:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.13);animation:float 9s ease-in-out infinite}
+header:before{width:280px;height:280px;right:-60px;top:-100px}header:after{width:170px;height:170px;left:8%;bottom:-80px;animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(18px) scale(1.08)}}
 .in,main{max-width:1040px;margin:0 auto;position:relative}
-h1{margin:0 0 16px;font:400 clamp(26px,6vw,54px)/1.05 "Rubik Mono One",Onest,sans-serif;text-transform:uppercase;color:#fff;-webkit-text-stroke:7px #1b0a3c;paint-order:stroke fill;text-shadow:0 5px 0 var(--p),0 9px 0 #1b0a3c;max-width:14em}
-h1 span{display:inline-block;opacity:0;transform:translateY(.6em) rotate(-5deg) scale(.8);animation:w .7s cubic-bezier(.2,.9,.3,1.4) forwards;animation-delay:calc(var(--k)*110ms)}
+.in{z-index:2}
+h1{margin:0 0 10px;font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:clamp(24px,5vw,40px);line-height:1.08;letter-spacing:-.5px;max-width:13em}
+h1 span{display:inline-block;opacity:0;transform:translateY(.5em) rotate(4deg);animation:w .7s cubic-bezier(.2,.9,.3,1.2) forwards;animation-delay:calc(var(--k)*90ms)}
 @keyframes w{to{opacity:1;transform:none}}
-header p{margin:0;max-width:30em;font-size:clamp(14px,2.4vw,18px);font-weight:600;text-shadow:0 2px 10px #0008}
-main{padding:0 16px 56px;margin-top:-14px;z-index:2}
+header p{margin:0;max-width:30em;opacity:.95;font-size:clamp(14px,2.4vw,17px)}
+.pills{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+.pills span{background:rgba(255,255,255,.2);backdrop-filter:blur(6px);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.float{position:absolute;inset:0;pointer-events:none;z-index:1}
+.float img{position:absolute;left:var(--x);top:var(--y);width:var(--s);height:auto;filter:drop-shadow(0 10px 14px rgba(20,0,60,.35));animation:bob2 7s ease-in-out infinite;animation-delay:var(--d);transform:translate(var(--tx,0),var(--ty,0));transition:transform .4s ease-out}
+@keyframes bob2{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -14px;rotate:3deg}}
+main{padding:0 16px 48px;margin-top:-34px;z-index:3}
 .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.bar button{font:700 14px Onest,sans-serif;color:#fff;border:2px solid transparent;border-radius:99px;padding:9px 18px;cursor:pointer;background:linear-gradient(var(--ink),var(--ink)) padding-box,linear-gradient(90deg,var(--y),var(--p),var(--v)) border-box;transition:transform .2s,background .3s}
-.bar button[aria-pressed=true]{background:linear-gradient(90deg,var(--y),var(--p)) padding-box,linear-gradient(90deg,var(--y),var(--p),var(--v)) border-box;color:#1b0a3c}
-.bar button:active{transform:scale(.94)}
-.bar output{margin-left:auto;font-size:14px;color:#cdb8ff}
-h2{margin:38px 0 14px;font:400 15px "Rubik Mono One",Onest,sans-serif;text-transform:uppercase;background:linear-gradient(90deg,var(--y),var(--p));-webkit-background-clip:text;background-clip:text;color:transparent;display:flex;align-items:center;gap:12px}
-h2:after{content:"";flex:1;height:3px;background:linear-gradient(90deg,var(--p),var(--v),transparent);border-radius:3px}
-.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:18px;filter:drop-shadow(0 14px 18px #ff3fa433)}
-.t{position:relative;display:block;padding:4px;min-height:182px;color:#fff;text-decoration:none;text-align:left;
- clip-path:polygon(0 7%,100% 0,100% 93%,0 100%);background:linear-gradient(135deg,var(--y),var(--p) 50%,var(--v));
- opacity:0;animation:in .7s ease forwards;animation-delay:calc(var(--i)*80ms);transition:transform .25s ease-out,filter .3s}
-@keyframes in{from{opacity:0;transform:translateY(26px) skewY(2deg)}to{opacity:1;transform:none}}
-.f{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:174px;padding:20px 18px 22px;overflow:hidden;isolation:isolate;
- clip-path:polygon(0 7%,100% 0,100% 93%,0 100%);background:linear-gradient(170deg,var(--a) 0%,var(--b) 35%,var(--c) 68%,var(--d) 100%);background-size:100% 220%;animation:shift 9s ease-in-out infinite;animation-delay:calc(var(--i)*-1.3s)}
-@keyframes shift{0%,100%{background-position:0 0}50%{background-position:0 100%}}
-.f:before{content:"";position:absolute;inset:-20%;z-index:-1;opacity:.22;background:
- radial-gradient(60% 18% at 20% 20%,#fff 0 60%,transparent 62%),radial-gradient(50% 14% at 80% 45%,#fff 0 60%,transparent 62%),radial-gradient(55% 16% at 30% 80%,#fff 0 60%,transparent 62%);filter:blur(10px);transform:rotate(-24deg);animation:drift 12s linear infinite}
-@keyframes drift{to{transform:rotate(-24deg) translateX(14%)}}
-.f:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.5),transparent 52%);opacity:0;transition:opacity .3s}
-a.t:hover .f:after{opacity:1}
-a.t:hover{filter:brightness(1.1) saturate(1.1)}
-.f img{position:absolute;right:-6px;top:10px;width:54%;mix-blend-mode:multiply;z-index:-1;transform:translate(calc(var(--px,0)*16px),calc(var(--py,0)*10px)) scale(1.04);transition:scale .4s;animation:bob 6s ease-in-out infinite}
-.f img.wideimg{width:78%;right:-12px;top:-4px}
-a.t:hover .f img{scale:1.12}
-@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -7px}}
-.f svg{position:absolute;right:16px;top:22px;width:80px;height:80px;opacity:.5;z-index:-1}
-.f b{font:400 17px/1.15 "Rubik Mono One",Onest,sans-serif;text-transform:uppercase;max-width:88%;margin-bottom:12px;-webkit-text-stroke:4px #1b0a3c;paint-order:stroke fill;text-shadow:0 3px 0 #1b0a3c}
-.go{font:700 13px Onest,sans-serif;font-style:normal;align-self:flex-start;padding:6px 14px;border-radius:99px;background:#1b0a3c;color:#ffe46b;border:2px solid #ffc233;transition:background .3s,color .3s,transform .3s}
-a.t:hover .go{background:#ffc233;color:#1b0a3c;transform:translateX(4px)}
-.soon{background:linear-gradient(135deg,#4a3a6a,#2a1f44);cursor:default}
-.soon .f{filter:saturate(.25) brightness(.55);animation-play-state:paused}
-.soon .go{background:#0006;color:#d8c8ff;border-color:#8a78b8}
+.bar button{font:600 14px Onest,sans-serif;border:0;border-radius:99px;padding:9px 16px;background:#fff;color:#2a3a5c;box-shadow:0 2px 8px rgba(20,40,90,.12);cursor:pointer;transition:background .25s,color .25s,transform .2s}
+.bar button[aria-pressed=true]{background:#0f1b33;color:#fff}.bar button:active{transform:scale(.95)}
+.bar output{margin-left:auto;font-size:14px;color:#4a5a78}
+h2{font-family:Unbounded,Onest,sans-serif;font-weight:500;font-size:16px;margin:36px 0 14px;color:#2a3a5c;display:flex;align-items:center;gap:10px}
+h2:after{content:"";flex:1;height:2px;background:linear-gradient(90deg,#c9d4ea,transparent)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px}
+.t{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:176px;padding:18px;border-radius:22px;color:#fff;text-decoration:none;overflow:hidden;isolation:isolate;
+ background:linear-gradient(135deg,var(--a),var(--b));background-size:160% 160%;box-shadow:0 10px 24px -10px var(--a);
+ transition:transform .25s ease-out,box-shadow .35s,background-position .6s;opacity:0;transform:translateY(22px);animation:in .7s ease forwards;animation-delay:calc(var(--i)*60ms)}
+@keyframes in{to{opacity:1;transform:none}}
+a.t:hover{background-position:100% 100%;box-shadow:0 18px 34px -10px var(--a)}
+.t:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;right:-50px;top:-60px;background:rgba(255,255,255,.18);z-index:-2;animation:float 8s ease-in-out infinite}
+.t:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.42),transparent 55%);opacity:0;transition:opacity .3s;z-index:-1}
+a.t:hover:after{opacity:1}
+.ph{position:absolute;right:10px;top:10px;width:56%;height:62%;z-index:-1;display:flex;align-items:center;justify-content:center;transform:translate(calc(var(--px,0)*16px),calc(var(--py,0)*10px));transition:transform .2s}
+.ph img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 8px 10px rgba(20,0,60,.35));animation:bob 6s ease-in-out infinite;transition:scale .4s}
+a.t:hover .ph img{scale:1.1}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.t b{font-family:Unbounded,Onest,sans-serif;font-weight:700;font-size:15px;line-height:1.2;margin-bottom:10px;max-width:92%;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+.go{font-size:13px;font-weight:700;background:rgba(255,255,255,.25);backdrop-filter:blur(4px);align-self:flex-start;padding:5px 12px;border-radius:99px;transition:background .3s,color .3s,padding .3s}
+a.t:hover .go{background:#fff;color:var(--a);padding-right:18px}
+.soon{cursor:default;box-shadow:none;filter:saturate(.8)}.soon .go{background:rgba(0,0,0,.2)}
 .hide{display:none!important}
-a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t,.f{min-height:150px}.f{padding:14px 12px 18px}.f b{font-size:12px;-webkit-text-stroke:3px #1b0a3c;max-width:100%}.f svg{width:56px;height:56px}.go{font-size:12px;padding:5px 10px}h1{-webkit-text-stroke:5px #1b0a3c}.float{display:none}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.t{opacity:1}h1 span{opacity:1;transform:none}}
+a:focus-visible,button:focus-visible{outline:3px solid #0f1b33;outline-offset:3px}
+@media(max-width:720px){.float{display:none}}
+@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t{min-height:156px;padding:14px}.t b{font-size:13px;max-width:100%}.ph{width:58%;height:50%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.t{opacity:1;transform:none}h1 span{opacity:1;transform:none}}
 </style></head><body>
-<header><div class="float" aria-hidden="true"><img style="--x:62%;--y:8%;--s:150px;--d:0s" src="img/lara.jpg" alt=""><img style="--x:78%;--y:40%;--s:140px;--d:-1.5s" src="img/cook.jpg" alt=""><img style="--x:90%;--y:6%;--s:120px;--d:-3s" src="img/beauty.jpg" alt=""><img style="--x:66%;--y:52%;--s:120px;--d:-4.5s" src="img/home.jpg" alt=""><img style="--x:52%;--y:34%;--s:110px;--d:-2.2s" src="img/drinks.jpg" alt=""></div><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p></div></header>
+<header><div class="float" aria-hidden="true"><img style="--x:58%;--y:10%;--s:170px;--d:0s" src="img/tv.png" alt=""><img style="--x:76%;--y:38%;--s:130px;--d:-1.5s" src="img/cook.png" alt=""><img style="--x:90%;--y:4%;--s:120px;--d:-3s" src="img/beauty.png" alt=""><img style="--x:66%;--y:52%;--s:130px;--d:-4.5s" src="img/home.png" alt=""><img style="--x:50%;--y:42%;--s:130px;--d:-2.2s" src="img/lara.png" alt=""><img style="--x:92%;--y:40%;--s:90px;--d:-3.8s" src="img/fridge.png" alt=""></div><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p>
+<div class="pills"><span>CENTEK</span><span>LARA</span><span>NEWTEK</span><span>Тест и сертификат</span></div></div></header>
 <main>
 <div class="bar"><button data-f="all" aria-pressed="true">Все курсы</button><button data-f="ready" aria-pressed="false">Готовые к обучению</button><output id="cnt"></output></div>
-<h2>Посуда</h2><div class="g"><a class="t" style="--a:#ff7a1a;--b:#ff3d6e;--c:#c13cd8;--d:#6a2bd9;--i:0" href="lara/"><span class="f"><img class=wideimg src="img/lara.jpg" alt=""><b>Посуда LARA</b><i class="go">Открыть курс</i></span></a></div>
-<h2>Мелкая бытовая техника</h2><div class="g"><a class="t" style="--a:#ffc233;--b:#ff7a2e;--c:#ff3d6e;--d:#8a2be2;--i:1" href="mbt-kitchen-cook/"><span class="f"><img src="img/cook.jpg" alt=""><b>Кухня: приготовление</b><i class="go">Открыть курс</i></span></a><a class="t" style="--a:#2ff0d0;--b:#2f9bff;--c:#7a3cf0;--d:#d23cc8;--i:2" href="mbt-drinks/"><span class="f"><img src="img/drinks.jpg" alt=""><b>Кухня: напитки и измельчение</b><i class="go">Открыть курс</i></span></a><a class="t" style="--a:#2f6bff;--b:#7a3cf0;--c:#d23cc8;--d:#ff7a6e;--i:3" href="mbt-home/"><span class="f"><img src="img/home.jpg" alt=""><b>Уход за домом</b><i class="go">Открыть курс</i></span></a><a class="t" style="--a:#ffd23a;--b:#ff7a45;--c:#ff3fa4;--d:#8a3cf0;--i:4" href="mbt-beauty/"><span class="f"><img src="img/beauty.jpg" alt=""><b>Красота и здоровье</b><i class="go">Открыть курс</i></span></a></div>
-<h2>Крупная бытовая техника</h2><div class="g"><div class="t soon" style="--a:#6ab0ff;--b:#7a3cf0;--c:#d23cc8;--d:#ff7a6e;--i:5"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="6" width="32" height="52" rx="4"/><path d="M16 26h32M22 14v6M22 32v10"/></svg><b>Холодильники и морозильники</b><i class="go">скоро</i></span></div><div class="t soon" style="--a:#2f6bff;--b:#8a3cf0;--c:#ff3fa4;--d:#ffb020;--i:6"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="6" width="44" height="52" rx="5"/><circle cx="32" cy="36" r="13"/><path d="M20 14h4M28 14h4"/></svg><b>Стирка</b><i class="go">скоро</i></span></div></div>
-<h2>Встраиваемая техника</h2><div class="g"><div class="t soon" style="--a:#ff7a2e;--b:#ff3d6e;--c:#8a2be2;--d:#2f6bff;--i:7"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="52" height="36" rx="5"/><circle cx="21" cy="26" r="6"/><circle cx="43" cy="26" r="6"/><circle cx="21" cy="40" r="4"/><circle cx="43" cy="40" r="4"/></svg><b>Варочные панели</b><i class="go">скоро</i></span></div><div class="t soon" style="--a:#2ff0d0;--b:#2f9bff;--c:#7a3cf0;--d:#d23cc8;--i:8"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8h24l10 22H10z"/><path d="M26 30v18h12V30M18 56h28"/></svg><b>Вытяжки</b><i class="go">скоро</i></span></div><div class="t soon" style="--a:#ffd23a;--b:#ff7a45;--c:#ff3fa4;--d:#8a3cf0;--i:9"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="52" height="34" rx="5"/><rect x="12" y="20" width="28" height="22" rx="3"/><circle cx="49" cy="26" r="2"/><circle cx="49" cy="36" r="2"/></svg><b>Встраиваемые СВЧ</b><i class="go">скоро</i></span></div></div>
-<h2>Телевизоры</h2><div class="g"><div class="t soon" style="--a:#2f6bff;--b:#7a3cf0;--c:#d23cc8;--d:#ff3fa4;--i:10"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="52" height="34" rx="4"/><path d="M22 56h20M32 46v10"/></svg><b>Телевизоры</b><i class="go">скоро</i></span></div></div>
-<h2>Климат</h2><div class="g"><div class="t soon" style="--a:#2ff0d0;--b:#2f9bff;--c:#7a3cf0;--d:#d23cc8;--i:9"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="52" height="18" rx="4"/><path d="M14 38c0 6-4 6-4 12M30 38c0 6-4 6-4 12M46 38c0 6-4 6-4 12"/></svg><b>Кондиционеры</b><i class="go">скоро</i></span></div><div class="t soon" style="--a:#ffe46b;--b:#ff8a3c;--c:#ff3fa4;--d:#8a3cf0;--i:10"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="10"/><path d="M32 6v8M32 50v8M6 32h8M50 32h8M14 14l6 6M44 44l6 6M14 50l6-6M44 20l6-6"/></svg><b>Летний климат</b><i class="go">скоро</i></span></div><div class="t soon" style="--a:#8fe3ff;--b:#2f9bff;--c:#7a3cf0;--d:#d23cc8;--i:11"><span class="f"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6v52M10 19l44 26M10 45l44-26M26 10l6 6 6-6M26 54l6-6 6 6"/></svg><b>Зимний климат</b><i class="go">скоро</i></span></div></div>
+<h2>Посуда</h2><div class="g"><a class="t" style="--a:#e8501f;--b:#ffb02e;--i:0" href="lara/"><span class="ph"><img src="img/lara.png" alt=""></span><b>Посуда LARA</b><span class="go">Открыть курс →</span></a></div>
+<h2>Мелкая бытовая техника</h2><div class="g"><a class="t" style="--a:#ff5a36;--b:#ff2e7e;--i:1" href="mbt-kitchen-cook/"><span class="ph"><img src="img/cook.png" alt=""></span><b>Кухня: приготовление</b><span class="go">Открыть курс →</span></a><a class="t" style="--a:#0aa6a0;--b:#2d6cdf;--i:2" href="mbt-drinks/"><span class="ph"><img src="img/drinks.png" alt=""></span><b>Кухня: напитки и измельчение</b><span class="go">Открыть курс →</span></a><a class="t" style="--a:#5b3be0;--b:#2aa1ff;--i:3" href="mbt-home/"><span class="ph"><img src="img/home.png" alt=""></span><b>Уход за домом</b><span class="go">Открыть курс →</span></a><a class="t" style="--a:#d4208a;--b:#ff7a45;--i:4" href="mbt-beauty/"><span class="ph"><img src="img/beauty.png" alt=""></span><b>Красота и здоровье</b><span class="go">Открыть курс →</span></a></div>
+<h2>Крупная бытовая техника</h2><div class="g"><div class="t soon" style="--a:#3a6df0;--b:#7ad0ff;--i:5"><span class="ph"><img src="img/fridge.png" alt=""></span><b>Холодильники и морозильники</b><span class="go">скоро</span></div><div class="t soon" style="--a:#7a4df0;--b:#c58bff;--i:6"><span class="ph"><img src="img/wash.png" alt=""></span><b>Стирка</b><span class="go">скоро</span></div></div>
+<h2>Встраиваемая техника</h2><div class="g"><div class="t soon" style="--a:#e0572b;--b:#ffc14a;--i:7"><span class="ph"><img src="img/hob.png" alt=""></span><b>Варочные панели</b><span class="go">скоро</span></div><div class="t soon" style="--a:#0f9d8a;--b:#5fe0c0;--i:8"><span class="ph"><img src="img/hood.png" alt=""></span><b>Вытяжки</b><span class="go">скоро</span></div><div class="t soon" style="--a:#d4208a;--b:#ff9a6e;--i:9"><span class="ph"><img src="img/mw.png" alt=""></span><b>Встраиваемые СВЧ</b><span class="go">скоро</span></div></div>
+<h2>Телевизоры</h2><div class="g"><div class="t soon" style="--a:#14233f;--b:#3a5bd9;--i:10"><span class="ph"><img src="img/tv.png" alt=""></span><b>Телевизоры</b><span class="go">скоро</span></div></div>
+<h2>Климат</h2><div class="g"><div class="t soon" style="--a:#12b5d6;--b:#4d7cff;--i:11"><span class="ph"><img src="img/ac.png" alt=""></span><b>Кондиционеры</b><span class="go">скоро</span></div><div class="t soon" style="--a:#ffb300;--b:#ff6b3d;--i:12"><span class="ph"><img src="img/fan.png" alt=""></span><b>Летний климат</b><span class="go">скоро</span></div><div class="t soon" style="--a:#5fa8ff;--b:#9a7dff;--i:13"><span class="ph"><img src="img/hum.png" alt=""></span><b>Зимний климат</b><span class="go">скоро</span></div></div>
 </main>
 <script>
 (function(){
 var h=document.getElementById('h1'),w=h.textContent.split(' ');h.setAttribute('aria-label',h.textContent);
 h.innerHTML=w.map(function(x,i){return '<span aria-hidden="true" style="--k:'+i+'">'+x+'&nbsp;</span>'}).join('');
 var fine=matchMedia('(hover:hover) and (pointer:fine)').matches,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
-if(fine&&!calm)document.querySelectorAll('a.t').forEach(function(c){
+if(fine&&!calm){
+document.querySelectorAll('a.t').forEach(function(c){
  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
   c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');c.style.setProperty('--px',(x-.5).toFixed(2));c.style.setProperty('--py',(y-.5).toFixed(2));
-  c.style.transform='perspective(700px) rotateX('+((.5-y)*9).toFixed(1)+'deg) rotateY('+((x-.5)*11).toFixed(1)+'deg) translateY(-6px) scale(1.03)'});
+  c.style.transform='perspective(700px) rotateX('+((.5-y)*9).toFixed(1)+'deg) rotateY('+((x-.5)*11).toFixed(1)+'deg) translateY(-6px) scale(1.02)'});
  c.addEventListener('pointerleave',function(){c.style.transform='';c.style.setProperty('--px',0);c.style.setProperty('--py',0)});
 });
 var hd=document.querySelector('header');
-if(fine&&!calm)hd.addEventListener('pointermove',function(e){var r=hd.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
- hd.querySelectorAll('.float img').forEach(function(im,i){var k=(i%3+1)*14;im.style.setProperty('--tx',(x*k).toFixed(1)+'px');im.style.setProperty('--ty',(y*k).toFixed(1)+'px')})});
+hd.addEventListener('pointermove',function(e){var r=hd.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ hd.querySelectorAll('.float img').forEach(function(im,i){var k=(i%3+1)*16;im.style.setProperty('--tx',(x*k).toFixed(1)+'px');im.style.setProperty('--ty',(y*k).toFixed(1)+'px')})});
+}
 var all=document.querySelectorAll('.t'),ready=document.querySelectorAll('a.t').length;
 document.getElementById('cnt').textContent='Готово курсов: '+ready+' из '+all.length;
 document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){
  document.querySelectorAll('.bar button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
  var only=b.dataset.f==='ready';
  document.querySelectorAll('div.t.soon').forEach(function(t){t.classList.toggle('hide',only)});
- document.querySelectorAll('main h2').forEach(function(h2){var g=h2.nextElementSibling;h2.classList.toggle('hide',only&&!g.querySelector('a.t'));g.classList.toggle('hide',only&&!g.querySelector('a.t'))});
+ document.querySelectorAll('main h2').forEach(function(h2){var g=h2.nextElementSibling,none=only&&!g.querySelector('a.t');h2.classList.toggle('hide',none);g.classList.toggle('hide',none)});
 })});
 })();
 </script></body></html>
