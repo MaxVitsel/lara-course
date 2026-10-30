@@ -4,14 +4,12 @@
 :root{--ink:#0a0612;--y:#ffc233;--p:#ff3fa4;--v:#7a3cf0}
 *{box-sizing:border-box}
 body{margin:0;font-family:Onest,system-ui,sans-serif;color:#fff;background:radial-gradient(1200px 600px at 50% 100%,#3a0f5e 0,transparent 70%),var(--ink);overflow-x:hidden;min-height:100vh}
-header{position:relative;padding:54px 16px 90px;overflow:hidden;background:linear-gradient(180deg,#1a0838 0%,#5a1a8a 38%,#e0378f 72%,#ff9a3c 100%)}
+header{position:relative;padding:54px 16px 90px;overflow:hidden;background:linear-gradient(115deg,#2f6bff,#7a3cf0,#ff3fa4,#ffb020,#7a3cf0,#2f6bff);background-size:300% 300%;animation:flow 14s ease infinite}
+@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.float{position:absolute;inset:0;pointer-events:none}
+.float img{position:absolute;left:var(--x);top:var(--y);width:var(--s);mix-blend-mode:multiply;animation:bob2 7s ease-in-out infinite;animation-delay:var(--d);transform:translate(var(--tx,0),var(--ty,0));transition:transform .4s ease-out}
+@keyframes bob2{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 -14px;rotate:3deg}}
 header:after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,transparent,var(--ink))}
-.sun{position:absolute;right:8%;bottom:-70px;width:min(320px,60vw);aspect-ratio:1;border-radius:50%;background:linear-gradient(180deg,#ffe46b,#ff8a3c 55%,#ff3fa4);animation:pulse 5s ease-in-out infinite;
- -webkit-mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 18px);mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 18px);-webkit-mask-size:100% 100%;filter:drop-shadow(0 0 40px #ff3fa4aa)}
-@keyframes pulse{0%,100%{transform:scale(1);opacity:.95}50%{transform:scale(1.06);opacity:1}}
-.palm{position:absolute;bottom:-10px;height:230px;width:auto}.palm.l{left:-24px}.palm.r{right:-30px;transform:scaleX(-1);height:190px}
-.fr{transform-origin:112px 110px;animation:sway 5s ease-in-out infinite;animation-delay:calc(var(--r)*-1/30)}
-@keyframes sway{0%,100%{transform:rotate(calc(var(--r)*0.0 + 0deg))}50%{transform:rotate(3deg)}}
 .in,main{max-width:1040px;margin:0 auto;position:relative}
 h1{margin:0 0 16px;font:400 clamp(26px,6vw,54px)/1.05 "Rubik Mono One",Onest,sans-serif;text-transform:uppercase;color:#fff;-webkit-text-stroke:7px #1b0a3c;paint-order:stroke fill;text-shadow:0 5px 0 var(--p),0 9px 0 #1b0a3c;max-width:14em}
 h1 span{display:inline-block;opacity:0;transform:translateY(.6em) rotate(-5deg) scale(.8);animation:w .7s cubic-bezier(.2,.9,.3,1.4) forwards;animation-delay:calc(var(--k)*110ms)}
@@ -52,10 +50,10 @@ a.t:hover .go{background:#ffc233;color:#1b0a3c;transform:translateX(4px)}
 .soon .go{background:#0006;color:#d8c8ff;border-color:#8a78b8}
 .hide{display:none!important}
 a:focus-visible,button:focus-visible{outline:3px solid #fff;outline-offset:3px}
-@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t,.f{min-height:150px}.f{padding:14px 12px 18px}.f b{font-size:12px;-webkit-text-stroke:3px #1b0a3c;max-width:100%}.f svg{width:56px;height:56px}.go{font-size:12px;padding:5px 10px}h1{-webkit-text-stroke:5px #1b0a3c}.palm{height:150px}.palm.r{height:120px}}
+@media(max-width:520px){.g{grid-template-columns:1fr 1fr;gap:12px}.t,.f{min-height:150px}.f{padding:14px 12px 18px}.f b{font-size:12px;-webkit-text-stroke:3px #1b0a3c;max-width:100%}.f svg{width:56px;height:56px}.go{font-size:12px;padding:5px 10px}h1{-webkit-text-stroke:5px #1b0a3c}.float{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.t{opacity:1}h1 span{opacity:1;transform:none}}
 </style></head><body>
-<header><svg class="palm l" viewBox="0 0 200 300" aria-hidden="true"><path d="M100 300C98 230 104 170 112 110" stroke="#05030a" stroke-width="9" fill="none" stroke-linecap="round"/><g fill="#05030a"><path class="fr" style="--r:-70deg" d="M112 110C80 60 30 70 0 110C40 85 80 90 112 110Z"/><path class="fr" style="--r:-35deg" d="M112 110C90 40 50 20 10 30C60 45 90 70 112 110Z"/><path class="fr" style="--r:0deg" d="M112 110C115 40 140 5 175 0C150 30 130 60 112 110Z"/><path class="fr" style="--r:30deg" d="M112 110C150 60 190 60 200 90C165 80 140 90 112 110Z"/><path class="fr" style="--r:60deg" d="M112 110C150 100 185 130 190 170C160 140 135 125 112 110Z"/><path class="fr" style="--r:-100deg" d="M112 110C80 110 40 140 25 180C60 150 90 125 112 110Z"/></g></svg><svg class="palm r" viewBox="0 0 200 300" aria-hidden="true"><path d="M100 300C98 230 104 170 112 110" stroke="#05030a" stroke-width="9" fill="none" stroke-linecap="round"/><g fill="#05030a"><path class="fr" style="--r:-70deg" d="M112 110C80 60 30 70 0 110C40 85 80 90 112 110Z"/><path class="fr" style="--r:-35deg" d="M112 110C90 40 50 20 10 30C60 45 90 70 112 110Z"/><path class="fr" style="--r:0deg" d="M112 110C115 40 140 5 175 0C150 30 130 60 112 110Z"/><path class="fr" style="--r:30deg" d="M112 110C150 60 190 60 200 90C165 80 140 90 112 110Z"/><path class="fr" style="--r:60deg" d="M112 110C150 100 185 130 190 170C160 140 135 125 112 110Z"/><path class="fr" style="--r:-100deg" d="M112 110C80 110 40 140 25 180C60 150 90 125 112 110Z"/></g></svg><div class="sun"></div><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p></div></header>
+<header><div class="float" aria-hidden="true"><img style="--x:62%;--y:8%;--s:150px;--d:0s" src="img/lara.jpg" alt=""><img style="--x:78%;--y:40%;--s:140px;--d:-1.5s" src="img/cook.jpg" alt=""><img style="--x:90%;--y:6%;--s:120px;--d:-3s" src="img/beauty.jpg" alt=""><img style="--x:66%;--y:52%;--s:120px;--d:-4.5s" src="img/home.jpg" alt=""><img style="--x:52%;--y:34%;--s:110px;--d:-2.2s" src="img/drinks.jpg" alt=""></div><div class="in"><h1 id="h1">Обучение продавцов CENTEK</h1><p>Курсы для сотрудников торгового зала сетей-партнёров: слайды, тест, сертификат</p></div></header>
 <main>
 <div class="bar"><button data-f="all" aria-pressed="true">Все курсы</button><button data-f="ready" aria-pressed="false">Готовые к обучению</button><output id="cnt"></output></div>
 <h2>Посуда</h2><div class="g"><a class="t" style="--a:#ff7a1a;--b:#ff3d6e;--c:#c13cd8;--d:#6a2bd9;--i:0" href="lara/"><span class="f"><img class=wideimg src="img/lara.jpg" alt=""><b>Посуда LARA</b><i class="go">Открыть курс</i></span></a></div>
@@ -76,6 +74,9 @@ if(fine&&!calm)document.querySelectorAll('a.t').forEach(function(c){
   c.style.transform='perspective(700px) rotateX('+((.5-y)*9).toFixed(1)+'deg) rotateY('+((x-.5)*11).toFixed(1)+'deg) translateY(-6px) scale(1.03)'});
  c.addEventListener('pointerleave',function(){c.style.transform='';c.style.setProperty('--px',0);c.style.setProperty('--py',0)});
 });
+var hd=document.querySelector('header');
+if(fine&&!calm)hd.addEventListener('pointermove',function(e){var r=hd.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+ hd.querySelectorAll('.float img').forEach(function(im,i){var k=(i%3+1)*14;im.style.setProperty('--tx',(x*k).toFixed(1)+'px');im.style.setProperty('--ty',(y*k).toFixed(1)+'px')})});
 var all=document.querySelectorAll('.t'),ready=document.querySelectorAll('a.t').length;
 document.getElementById('cnt').textContent='Готово курсов: '+ready+' из '+all.length;
 document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){
